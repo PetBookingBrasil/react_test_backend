@@ -1,24 +1,68 @@
-# README
+## Create a user
+REQUEST
+```
+POST {{URL}}/api/users
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+{
+	"user": {
+		"name": "Rob Dan",
+		"email": "rob_test@petbooking.com.br",
+		"password": "12345678"
+	}
+}
+```
+Headers: 
+```
+Content-Type: application/vnd.api+json
+```
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+RESPONSE
+```
+{
+    "name": "Rob Dan",
+    "email": "rob_tests1@petbooking.com.br",
+    "authentication_token": "xpTNirodkvuNKLRfrtpAbSWk"
+}
+```
 
-* Database creation
 
-* Database initialization
+## Create a session
+REQUEST
+```
+POST {{URL}}/api/sessions
 
-* How to run the test suite
+{
+    "authentication_token": "A3M37KAgozF4uu1GbALdRFB2",
+    "email": "rob_tests1@petbooking.com.br",
+    "name": "Rob Dan"
+}
+```
+Headers: 
+```
+Content-Type: application/vnd.api+json
+```
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+RESPONSE
+```
+{
+    "authentication_token": "A3M37KAgozF4uu1GbALdRFB2",
+    "email": "rob_tests1@petbooking.com.br",
+    "name": "Rob Dan"
+}
+```
 
-* ...
+## Destroy a session
+
+REQUEST
+```
+DELETE {{URL}}/api/sessions/{{authentication_token}}
+```
+
+
+
+RESPONSE: 200 ok
+
